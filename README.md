@@ -34,3 +34,16 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+First step
+
+
+fourth step:
+setup your supabase backend on 'supabase.com'
+
+5th step:
+Google place search from 59.04mins - 
+WE ARE USING THE LIBRARY CALLED REACT GOOGLE PLACER AUTO COMPLETE
+go to google console to get your api key for the google place auto complete
+formik
