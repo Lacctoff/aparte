@@ -20,6 +20,19 @@ import { useUser } from "@clerk/nextjs";
 import FileUpload from "../_components/FileUpload";
 import { Loader } from "lucide-react";
 
+import {
+  AlertDialog,
+  AlertDialogAction,
+  AlertDialogCancel,
+  AlertDialogContent,
+  AlertDialogDescription,
+  AlertDialogFooter,
+  AlertDialogHeader,
+  AlertDialogTitle,
+  AlertDialogTrigger,
+} from "@/components/ui/alert-dialog"
+
+
 const EditListing = ({params}) => {
 
   //get user from clerk
@@ -79,11 +92,13 @@ const EditListing = ({params}) => {
     if (data) {
       console.log(data);
       toast('Listing Updated and Published');
+      setLoading(false);
     }
 
     // store the images one by one into the supabase using for each loop
     for (const image of images)
     {
+      setLoading(true);
       const file = image;
       const fileName = Date.now().toString();
       const fileExt = fileName.split('.').pop();
@@ -108,6 +123,11 @@ const EditListing = ({params}) => {
           {url: imageUrl, listing_id:params?.id}
         ])
         .select();
+
+        if (data) 
+        {
+          setLoading(false);
+        }
         if (error) 
         {
           setLoading(false);
@@ -115,8 +135,24 @@ const EditListing = ({params}) => {
       }
       setLoading(false);
   }
-
 };
+
+// publish handler to change the active column in our database
+const publishBtnHandler = async () => {
+  setLoading(true);
+  const { data, error } = await supabase
+  .from('listing')
+  .update({ active: true })
+  .eq('id', params?.id)
+  .select()
+          
+  if (data)
+  {
+    setLoading(false);
+    toast('Listing published')
+  }
+}
+
 return (
   <div className="px-10 md:px-36 my-10">
 
@@ -244,12 +280,33 @@ return (
 
               {/* save buttons */}
               <div className="flex gap-7 justify-end">
-                <Button variant="outline" className="text-primary border-primary">
-                  Save
+                <Button disabled={loading} variant="outline" className="text-primary border-primary">
+                  {loading ? <Loader className="animate-spin"/> : 'Save'} 
                 </Button>
-                <Button disabled={loading} className="">
-                  {loading ? <Loader /> : 'Save & Publish'} 
-                </Button>
+
+                {/* dialog trigger */}
+                <AlertDialog>
+                  <AlertDialogTrigger asChild>
+                  <Button type="button" disabled={loading} className="">
+                      {loading ? <Loader className="animate-spin"/> : 'Save & Publish'} 
+                  </Button>
+                  </AlertDialogTrigger>
+                  <AlertDialogContent>
+                    <AlertDialogHeader>
+                      <AlertDialogTitle>Ready to Publish?</AlertDialogTitle>
+                      <AlertDialogDescription>
+                        Sure you don't want to review this and go ahead with the Publish?
+                      </AlertDialogDescription>
+                    </AlertDialogHeader>
+                    <AlertDialogFooter>
+                      <AlertDialogCancel>Cancel</AlertDialogCancel>
+                      <AlertDialogAction onClick={() => publishBtnHandler()}>
+                        {loading ? <Loader className="animate-spin"/> : 'Continue'}
+                      </AlertDialogAction>
+                    </AlertDialogFooter>
+                  </AlertDialogContent>
+                </AlertDialog>
+
               </div>
             </div>
         </div>
