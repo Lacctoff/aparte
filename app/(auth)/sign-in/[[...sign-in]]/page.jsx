@@ -2,7 +2,10 @@ import { SignIn } from "@clerk/nextjs";
 
 export default function Page() {
   return (
+<<<<<<< HEAD
+=======
 
+>>>>>>> e5276330cf231dc97ffb7b3016074cb03dc29c20
 <section className="bg-white">
   <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
     <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
@@ -29,11 +32,20 @@ export default function Page() {
         </a>
 
         <h2 className="mt-6 text-2xl font-bold text-white sm:text-3xl md:text-4xl">
+<<<<<<< HEAD
+          Welcome to Squid 🦑
+        </h2>
+
+        <p className="mt-4 leading-relaxed text-white/90">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
+          quibusdam aperiam voluptatum.
+=======
           Welcome to Aparte 
         </h2>
 
         <p className="mt-4 leading-relaxed text-white/90">
           Affordable Homes at expensive Quality.
+>>>>>>> e5276330cf231dc97ffb7b3016074cb03dc29c20
         </p>
       </div>
     </section>
@@ -62,6 +74,18 @@ export default function Page() {
           </a>
 
           <h1 className="mt-2 text-2xl font-bold text-gray-900 sm:text-3xl md:text-4xl">
+<<<<<<< HEAD
+            Welcome to Squid 🦑
+          </h1>
+
+          <p className="mt-4 leading-relaxed text-gray-500">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eligendi nam dolorum aliquam,
+            quibusdam aperiam voluptatum.
+          </p>
+        </div>
+
+        <SignIn />
+=======
           Welcome to Aparte
           </h1>
 
@@ -71,9 +95,15 @@ export default function Page() {
         </div>
 
         <SignIn />;
+>>>>>>> e5276330cf231dc97ffb7b3016074cb03dc29c20
       </div>
     </main>
   </div>
 </section>
+<<<<<<< HEAD
+);
+};
+=======
   )
 }
+>>>>>>> e5276330cf231dc97ffb7b3016074cb03dc29c20
