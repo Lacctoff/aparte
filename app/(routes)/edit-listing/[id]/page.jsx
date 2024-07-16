@@ -162,16 +162,16 @@ return (
     </h2>
 
     <Formik
-    initialValues={{
-      type:'',
-      propertyType:'',
-      profileImage: user?.imageUrl,
-      fullName: user?.fullName
-    }}
-    onSubmit={(values) => {
-      console.log(values);
-      onSubmitHandler(values);
-    }}
+      initialValues={{
+        type: '',
+        propertyType:'',
+        profileImage: user?.imageUrl,
+        fullName: user?.fullName
+      }}
+      onSubmit={(values) => {
+        console.log(values);
+        onSubmitHandler(values);
+      }}
     >
       {({
         values,
@@ -185,7 +185,7 @@ return (
                 {/* Radio buttons for rent or sell from shad-cn make sure to install the radioButtons */}
                 <div className="flex flex-col gap-2">
                   <h2 className="text-lg text-slate-500">Rent or Sell?</h2>
-                  <RadioGroup  defaultValue={listing?.type} onValueChange={(v) => values.type=v}>
+                  <RadioGroup name="type"  defaultValue={listing?.type} onValueChange={(v) => values.type=v}>
                     <div className="flex items-center space-x-2">
                       <RadioGroupItem value="Rent" id="Rent" />
                       <Label htmlFor="Rent" className='text-lg'>Rent</Label>
@@ -251,11 +251,11 @@ return (
               {/* fourth Row includes selling price and HOA/month */}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div className="flex flex-col gap-2">
-                  <h2 className="text-gray-500">Selling Price ($)</h2>
+                  <h2 className="text-gray-500">Selling Price (₦)</h2>
                   <Input type="number" placeholder="400,000"  defaultValue={listing?.price} name="price" onChange={handleChange}/>
                 </div>
                 <div className="flex flex-col gap-2">
-                  <h2 className="text-gray-500">HOA (Per Month) ($)</h2>
+                  <h2 className="text-gray-500">HOA (Per Month) (₦)</h2>
                   <Input type="number" placeholder="100"  defaultValue={listing?.hoa} name="hoa" onChange={handleChange}/>
                 </div>
               </div>

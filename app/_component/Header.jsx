@@ -20,7 +20,9 @@ const Header = () => {
   return (
     <div className='p-6 px-10 flex justify-between shadow-sm fixed top-0 w-full z-10 bg-white'>
       <div className='flex gap-12 items-center'>
-        <Image src={'/logo.svg'} width={120} height={120} alt='logo'/>
+        <Link href={'/'}>
+          <Image src={'/logo.svg'} width={120} height={120} alt='logo'/>
+        </Link>
         <ul className='hidden md:flex gap-10'>
           <Link href={'/'}>
               <li className={`hover:text-primary font-medium text-sm cursor-pointer ${path === '/' && 'text-primary'}`}>For Sale</li>
