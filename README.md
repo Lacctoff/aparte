@@ -35,15 +35,17 @@ The easiest way to deploy your Next.js app is to use the [Vercel Platform](https
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
 
-
 First step
-
 
 fourth step:
 setup your supabase backend on 'supabase.com'
 
 5th step:
-Google place search from 59.04mins - 
+Google place search from 59.04mins -
 WE ARE USING THE LIBRARY CALLED REACT GOOGLE PLACER AUTO COMPLETE
 go to google console to get your api key for the google place auto complete
 formik
+
+### adding something
+
+something to add
