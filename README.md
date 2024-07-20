@@ -45,7 +45,3 @@ Google place search from 59.04mins -
 WE ARE USING THE LIBRARY CALLED REACT GOOGLE PLACER AUTO COMPLETE
 go to google console to get your api key for the google place auto complete
 formik
-
-### adding something
-
-something to add
