@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import Listing from './Listing'
 import { supabase } from '@/utils/supabase/client'
 import { toast } from 'sonner'
+import GoogleMapSection from './GoogleMapSection'
 
 const ListingMapView = ({type}) => {
 
@@ -13,6 +14,7 @@ const ListingMapView = ({type}) => {
     const [bathCount, setBathCount] = useState(0);
     const [parkingCount, setParkingCount] = useState(0);
     const [homeType, setHomeType] = useState();
+    const [coordinates, setCoordinates] = useState();
 
 
     useEffect(() => {
@@ -71,7 +73,9 @@ const ListingMapView = ({type}) => {
         }
     }
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2'>
+
+    //The Search functionality and  Features filter section
+    <div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
         <div>
             <Listing listing={listing} 
             handleSearchClick={handleSearchClick} 
@@ -80,13 +84,17 @@ const ListingMapView = ({type}) => {
             setBedCount={setBedCount}
             setParkingCount={setParkingCount}
             setHomeType={setHomeType}
+            setCoordinates={setCoordinates}
             />
         </div>
 
 
         {/* Map section on the right */}
-        <div>
-            Map
+        <div className='hidden fixed right-6 h-full md:block md:w-[350px] lg:w-[450px] xl:w-[650px]'>
+            <GoogleMapSection 
+                listing={listing}
+                coordinates={coordinates}
+            />
         </div>
     </div>
   )

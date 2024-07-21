@@ -1,18 +1,23 @@
 import { SignIn } from "@clerk/nextjs";
+import Image from "next/image";
 
 export default function Page() {
   return (
+
 <section className="bg-white">
   <div className="lg:grid lg:min-h-screen lg:grid-cols-12">
     <section className="relative flex h-32 items-end bg-gray-900 lg:col-span-5 lg:h-full xl:col-span-6">
-      <img
-        alt=""
-        src="https://images.unsplash.com/photo-1617195737496-bc30194e3a19?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"
+      <Image
+        alt="image"
+        src="/sign-in-banner.jpg"
+        width={410}
+        height={140}
         className="absolute inset-0 h-full w-full object-cover opacity-80"
       />
 
+        {/* Big screen size code */}
       <div className="hidden lg:relative lg:block lg:p-12">
-        <a className="block text-white" href="#">
+        <a className="block text-primary" href="#">
           <span className="sr-only">Home</span>
           <svg
             className="h-8 sm:h-10"
@@ -31,7 +36,7 @@ export default function Page() {
           Welcome to Aparte 
         </h2>
 
-        <p className="mt-4 leading-relaxed text-white/90">
+        <p className="my-4 leading-relaxed text-white/90">
           Affordable Homes at expensive Quality.
         </p>
       </div>
@@ -43,7 +48,7 @@ export default function Page() {
       <div className="max-w-xl lg:max-w-3xl">
         <div className="relative -mt-16 block lg:hidden">
           <a
-            className="inline-flex size-16 items-center justify-center rounded-full bg-white text-blue-600 sm:size-20"
+            className="inline-flex size-16 items-center justify-center rounded-full bg-white text-primary sm:size-20"
             href="#"
           >
             <span className="sr-only">Home</span>
@@ -64,12 +69,12 @@ export default function Page() {
           Welcome to Aparte
           </h1>
 
-          <p className="mt-4 leading-relaxed text-gray-500">
+          <p className="my-4 leading-relaxed text-gray-500">
           Affordable Homes at expensive Quality.
           </p>
         </div>
 
-        <SignIn />;
+        <SignIn />
       </div>
     </main>
   </div>

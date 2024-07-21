@@ -4,23 +4,25 @@ import React, { useState } from 'react'
 import GoogleAddressSearch from './GoogleAddressSearch'
 import { Button } from '@/components/ui/button'
 import FilterSection from './FilterSection'
+import Link from 'next/link'
 
-const Listing = ({listing, handleSearchClick, searchedAddress, setBathCount, setBedCount, setParkingCount, setHomeType}) => {
+const Listing = ({listing, handleSearchClick, searchedAddress, setBathCount, setBedCount, setParkingCount, setHomeType, setCoordinates}) => {
     const [address, setAddress] = useState();
   return (
     <div >
-        <div className='p-3 flex gap-6'>
+        <div className='flex gap-3 md:p-3 md:gap-6'>
         <GoogleAddressSearch 
         selectedAddress={(v) => {searchedAddress(v);
             setAddress(v)
         }}
-        setCoordinates={(v) => console.log(v)}
+        // setCoordinates={(v) => console.log(v)}
+        setCoordinates={setCoordinates}
         />
 
         <Button 
         className='flex gap-2'
         onClick={handleSearchClick}
-        > <Search className='h-4 w-4'/> Search</Button>
+        > <Search className='h-4 w-4'/> <span className='hidden md:flex'>Search</span></Button>
         </div>
 
         <FilterSection 
@@ -37,7 +39,8 @@ const Listing = ({listing, handleSearchClick, searchedAddress, setBathCount, set
 
         <div className='grid grid-cols-1 md:grid-cols-2 gap-5'>
             {listing?.length > 0 ? listing.map((item, index) => (
-                <div className='p-3 hover:border hover:border-primary cursor-pointer rounded-lg'>
+                <Link href={'/view-listing/'+item.id}>
+                    <div className='p-3 hover:border hover:border-primary cursor-pointer rounded-lg'>
                     <Image src={item?.listingImages[0].url}
                     width={800}
                     height={170}
@@ -74,7 +77,8 @@ const Listing = ({listing, handleSearchClick, searchedAddress, setBathCount, set
                             </h2>
                         </div>
                     </div>
-                </div>
+                    </div>
+                </Link>
             ))
                 :[1, 2, 3, 4, 5, 6, 7, 8].map((item, index) => (
                 <div key={index} className='h-[230px] w-full bg-slate-200 animate-pulse rounded-lg'>

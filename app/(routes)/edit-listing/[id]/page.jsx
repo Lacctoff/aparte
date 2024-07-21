@@ -209,8 +209,10 @@ return (
                       <SelectItem value="Single Family House">
                         Single Family House
                       </SelectItem>
-                      <SelectItem value="Town House">Town House</SelectItem>
-                      <SelectItem value="Condo">Condo</SelectItem>
+                      <SelectItem value="One Bedroom">One Bedroom</SelectItem>
+                      <SelectItem value="Two Bedroom">Two Bedroom</SelectItem>
+                      <SelectItem value="Three Bedroom">Three Bedroom</SelectItem>
+                      <SelectItem value="Four Bedroom">Four Bedroom</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
